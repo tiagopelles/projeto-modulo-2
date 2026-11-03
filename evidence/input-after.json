@@ -1,0 +1,57 @@
+[
+  {
+    "Cmd": "from",
+    "Value": [
+      "docker.io/library/node:20-bookworm-slim@sha256:2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0"
+    ]
+  },
+  {
+    "Cmd": "workdir",
+    "Value": [
+      "/app"
+    ]
+  },
+  {
+    "Cmd": "copy",
+    "Value": [
+      "app-after/package*.json",
+      "app-after/.npmrc",
+      "./"
+    ]
+  },
+  {
+    "Cmd": "run",
+    "Value": [
+      "npm",
+      "ci",
+      "--ignore-scripts",
+      "--omit=dev"
+    ]
+  },
+  {
+    "Cmd": "copy",
+    "Value": [
+      "app-after/",
+      "."
+    ]
+  },
+  {
+    "Cmd": "user",
+    "Value": [
+      "node"
+    ]
+  },
+  {
+    "Cmd": "expose",
+    "Value": [
+      "3000"
+    ]
+  },
+  {
+    "Cmd": "cmd",
+    "Value": [
+      "[\"node\",",
+      "\"server.js\"]"
+    ]
+  }
+]

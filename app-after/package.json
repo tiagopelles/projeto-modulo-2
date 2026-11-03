@@ -1,0 +1,9 @@
+{
+  "name": "api-brinquedo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "App de brinquedo para o Projeto Final CY-SE-013",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "lodash": "4.18.1" }
+}

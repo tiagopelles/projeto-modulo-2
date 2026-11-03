@@ -1,0 +1,9 @@
+[Dockerfile.before (ANTES)] violações=3
+   - container roda como root: falta instrução USER não-root
+   - imagem-base 'node:20' não está fixada por digest (@sha256)
+   - imagem-base 'node:20' não é de um registry aprovado
+[Dockerfile (DEPOIS)] violações=0
+[USER root explícito] violações=1
+   - container roda como root: USER root
+[registry não aprovado] violações=1
+   - imagem-base 'evil.io/node@sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' não é de um registry aprovado

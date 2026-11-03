@@ -1,0 +1,7 @@
+$ openssl dgst -sha256 -sign priv.pem -out artefato.sig artefato.txt
+$ openssl dgst -sha256 -verify pub.pem -signature artefato.sig artefato.txt   # artefato ÍNTEGRO
+Verified OK
+
+# atacante troca a imagem-base por uma maliciosa (1 linha):
+$ openssl dgst -sha256 -verify pub.pem -signature artefato.sig artefato-adulterado.txt
+Verification failure

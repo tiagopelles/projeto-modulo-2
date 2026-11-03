@@ -1,0 +1,48 @@
+[
+  {
+    "Cmd": "from",
+    "Value": [
+      "node:20"
+    ]
+  },
+  {
+    "Cmd": "workdir",
+    "Value": [
+      "/app"
+    ]
+  },
+  {
+    "Cmd": "copy",
+    "Value": [
+      "app/package*.json",
+      "./"
+    ]
+  },
+  {
+    "Cmd": "run",
+    "Value": [
+      "npm",
+      "install"
+    ]
+  },
+  {
+    "Cmd": "copy",
+    "Value": [
+      "app/",
+      "."
+    ]
+  },
+  {
+    "Cmd": "expose",
+    "Value": [
+      "3000"
+    ]
+  },
+  {
+    "Cmd": "cmd",
+    "Value": [
+      "[\"node\",",
+      "\"server.js\"]"
+    ]
+  }
+]
