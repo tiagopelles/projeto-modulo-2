@@ -10,7 +10,7 @@ Fases do modelo de ameaça da Aula 6: **Origem → Build → Distribuição** (+
 | Distribuição | Imagem trocada no registry / mirror falso / tag reapontada | SolarWinds, ua-parser-js (conta roubada) | **Cosign keyless** + verificação por identidade (Aula 7) | **Bloqueia** no deploy se a verificação falhar; **evidencia** quem assinou e quando (Rekor) | `scripts/run-local.sh` seção 3; demo offline da mecânica em `evidence/verificacao-offline.txt` |
 | Operação | CVE nova publicada depois do build | (fora dos 4 casos da aula) | SBOM x CVE contínuo (NIST SSDF RV.1.3) | **Evidencia** em minutos | `trivy sbom` sobre o SBOM guardado |
 
-## Se essa cadeia fosse atacada amanhã, que evidência eu teria? (Aulas 8-9)
+## Se essa cadeia fosse atacada amanhã, que evidência eu teria?
 
 1. **O que rodava**: SBOM CycloneDX por imagem, atrelado ao digest. Respondo "lodash 4.17.15 estava em produção?" sem abrir o container.
 2. **Quem produziu**: assinatura Cosign keyless com identidade OIDC (e-mail ou workflow) e certificado Fulcio de vida curta. Sem chave para roubar.
