@@ -16,6 +16,6 @@ node_modules/lodash
 
 To address all issues, run:
   npm audit fix --force
-api-brinquedo@1.0.0 /home/claude/raio-x-supply-chain/app
+api-brinquedo@1.0.0 /home/tiago/raio-x-supply-chain/app
 `-- (empty)
 
