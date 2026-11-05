@@ -1,7 +1,4 @@
-# DEPOIS: imagem-base por digest (Aula 6), deps travadas por lockfile, sem scripts, usuário não-root
-# O digest vem do slide da Aula 6 (node:20-bookworm-slim); atualize com:
-#   docker buildx imagetools inspect node:20-bookworm-slim
-FROM docker.io/library/node:20-bookworm-slim@sha256:2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0
+FROM docker.io/library/node:22-bookworm-slim@sha256:4b150b48b4116e2a22f2c39cc27025fbf4f153e2078fd3b14d159fdb5c7279da
 WORKDIR /app
 COPY app-after/package*.json app-after/.npmrc ./
 RUN npm ci --ignore-scripts --omit=dev
