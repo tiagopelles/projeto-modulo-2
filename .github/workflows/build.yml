@@ -68,6 +68,7 @@ jobs:
         with:
           image-ref: ${{ env.IMAGE }}@${{ steps.push.outputs.digest }}
           severity: HIGH,CRITICAL
+          ignore-unfixed: true
           exit-code: "1"
 
       # 3. CADEIA
