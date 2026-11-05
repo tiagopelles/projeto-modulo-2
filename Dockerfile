@@ -1,4 +1,4 @@
-FROM docker.io/library/node:22-bookworm-slim@sha256:4b150b48b4116e2a22f2c39cc27025fbf4f153e2078fd3b14d159fdb5c7279da
+FROM docker.io/library/node:26-alpine3.23@sha256:a004f02badb10f7037f1bede5cc916131d3f62a1690a92845457949740e86117
 WORKDIR /app
 COPY app-after/package*.json app-after/.npmrc ./
 RUN npm ci --ignore-scripts --omit=dev
