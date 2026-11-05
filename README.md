@@ -31,3 +31,45 @@ MAPA_DE_AMEACAS.md       # mapa de ameaças + resposta de compliance
 | Encontrou e registrou 1 vulnerabilidade real | Executado (Trivy e `npm audit`: lodash 4.17.15) | `evidence/trivy-BEFORE.txt`, `evidence/npm-audit-BEFORE.txt` |
 | Assinou e verificou com Cosign | Executado (keyless, ghcr.io) | `evidence/cosign-verify-OK.txt`, `evidence/cosign-verify-ADULTERADA.txt` |
 | Conectou com caso real de ataque | Escrito (SolarWinds, XZ Utils, ua-parser-js, Codecov) | `MAPA_DE_AMEACAS.md` |
+
+
+# Correção de Vulnerabilidades e Validação do Pipeline
+
+## Problema Identificado
+
+A execução anterior do pipeline apresentou falha durante as etapas de validação e análise de segurança, impedindo a conclusão do fluxo de entrega.
+
+**Execução com falha:**
+- GitHub Actions Run: https://github.com/tiagopelles/projeto-modulo-2/actions/runs/41932475919
+
+A falha estava relacionada às verificações automatizadas de vulnerabilidades existentes.
+
+## Ajustes Realizados
+
+Foram implementadas correções na branch de desenvolvimento para atender aos requisitos de segurança e qualidade definidos no pipeline, incluindo:
+
+- Atualização de dependências com vulnerabilidades conhecidas.
+- Adequação das versões de bibliotecas para versões seguras e suportadas.
+- Revisão da imagem utilizada no processo de build.
+- Ajustes no fluxo de análise de vulnerabilidades do pipeline.
+- Validação do processo de build, testes e análise de segurança.
+
+As configurações de análise consideram vulnerabilidades classificadas como **HIGH** e **CRITICAL**, permitindo a aprovação apenas quando não existirem vulnerabilidades críticas corrigíveis pendentes.
+
+## Resultado
+
+Após a implementação dos ajustes, uma nova execução do pipeline foi realizada com sucesso.
+
+**Execução aprovada:**
+- GitHub Actions Run: https://github.com/tiagopelles/projeto-modulo-2/actions/runs/42117374006
+
+## Evidência
+
+| Execução | Resultado |
+|-----------|------------|
+| 41932475919 | ❌ Falha |
+| 42117374006 | ✅ Sucesso |
+
+## Conclusão
+
+Os ajustes aplicados na branch foram suficientes para atender às validações de segurança e qualidade estabelecidas no fluxo Gitflow Actions. A nova execução confirmou a correção das inconsistências identificadas anteriormente, resultando na conclusão bem-sucedida do pipeline e na aprovação das etapas automatizadas de build, testes e análise de vulnerabilidades.
