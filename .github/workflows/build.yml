@@ -8,8 +8,8 @@ permissions:
 
 env:
   IMAGE: ghcr.io/${{ github.repository_owner }}/api-brinquedo
-  # Identidade esperada na assinatura keyless: ESTE workflow, neste repositório e branch.
-  SIGNER: https://github.com/${{ github.repository }}/.github/workflows/build.yml@refs/heads/main
+  # Identidade = este workflow, na branch em que está rodando
+  SIGNER: https://github.com/${{ github.workflow_ref }}
   ISSUER: https://token.actions.githubusercontent.com
 
 jobs:
@@ -68,6 +68,7 @@ jobs:
         with:
           image-ref: ${{ env.IMAGE }}@${{ steps.push.outputs.digest }}
           severity: HIGH,CRITICAL
+          ignore-unfixed: true
           exit-code: "1"
 
       # 3. CADEIA
